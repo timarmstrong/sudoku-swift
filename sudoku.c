@@ -71,7 +71,7 @@ int main(int argc, char **argv) {
               candidates->arr[i] = NULL;
               if (prog != NULL) {
                 // found a solution
-                free_boardlist(candidates);
+                free_boardlist(candidates, true);
                 break;
               }
             }
@@ -88,7 +88,7 @@ int main(int argc, char **argv) {
         assert(prog->arr[prog->len - 1]->nfilled == BOARD_CELLS);
         printf("Solved!\n");
         print_board(stdout, prog->arr[prog->len - 1]);
-        free_boardlist(prog);
+        free_boardlist(prog, true);
       }
       free(sud);
     }

@@ -421,11 +421,13 @@ void free_board(struct board *board) {
     free(board);
 }
 
-void free_boardlist(struct boardlist *l) {
-    for (int i = 0; i < l->len; i++) {
-       if (l->arr[i] != NULL) {
-           free_board(l->arr[i]);
-       }
+void free_boardlist(struct boardlist *l, bool free_boards) {
+    if (free_boards) {
+        for (int i = 0; i < l->len; i++) {
+           if (l->arr[i] != NULL) {
+               free_board(l->arr[i]);
+           }
+        }
     }
     free(l->arr);
     free(l);
@@ -577,7 +579,7 @@ struct boardlist *sudoku_solver_resume(struct boardlist *boards, bool breadthfir
     }
 
     if (boards->len == 0) {
-        free_boardlist(boards);
+        free_boardlist(boards, true);
         return NULL;
     } else {
         return boards;

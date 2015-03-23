@@ -43,7 +43,8 @@ sudoku_solve (updateable_float solved, blob board, int filled) {
     boardinfo candidates3[] = @prio=filled sudoku_step(solved, board,
                                                   false, quota);
     foreach c3 in candidates3 {
-      if (c3.filledSquares == boardsize * boardsize) {
+      int totalSquares = boardsize * boardsize;
+      if (c3.filledSquares == totalSquares) {
         solved <incr> := 1;
         print_board(c3.board);
         printf("SOLVED!");

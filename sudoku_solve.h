@@ -87,6 +87,6 @@ bool boardlist_solved(struct boardlist *boards);
 struct board *boardlist_get(struct boardlist *l, int i);
 int boardlist_len(struct boardlist *l);
 int board_nfilled(struct board *b);
-void free_boardlist(struct boardlist *l);
+void free_boardlist(struct boardlist *l, bool free_boards);
 
 #endif //__SUDOKU_SOLVE_H
