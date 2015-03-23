@@ -1,0 +1,24 @@
+# +=======================================================+
+# | Manifest file to build Turbine application executable |
+# +=======================================================+
+
+# Manifest info: required to generate .c file and pkgIndex.tcl
+# ------------------------------------------------------------
+
+# Name and version of Tcl package
+pkg_name = sudoku_solve
+pkg_version = 0.0
+
+# C function names to initialise Tcl modules
+lib_init = Sudoku_solve_Init
+
+# lib scripts are executed in specified order, before main_script and
+# after lib_inits
+lib_script = sudoku_solve.tcl
+
+# headers for user Tcl code, e.g. lib_init functions
+lib_include = sudoku_solve_wrap.h
+
+# main script. If provided, always runs this main script.  Otherwise
+# script file is specified as first command line argument (like tclsh)
+main_script = sudoku.tic

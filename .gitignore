@@ -1,0 +1,9 @@
+*.ic
+*.tic
+*.stc.log
+*.o
+*_wrap.c
+sudoku
+sudoku_swift
+sudoku_swift.c
+
